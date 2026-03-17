@@ -1,15 +1,20 @@
-import React from 'react'
-import './index.css'
-import { SparklesPreview } from './components/ui/SparklesPreview'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './index.css';
+import Landing from './pages/Landing';
+import Options from './pages/Options';
+import AppPage from './pages/AppPage';
 
 function App() {
   return (
-    <div className='h-screen w-full bg-zinc-800 text-white'>
-      <h1 className='text-3xl font-bold text-center mt-10'>Hello World</h1>
-      <p className='text-center mt-4'>IS mango pie speaking</p>
-      <SparklesPreview />
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/options" element={<Options />} />
+        <Route path="/app" element={<AppPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
